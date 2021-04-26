@@ -12,7 +12,7 @@
     "@enhavo/app": "https://github.com/enhavo/app-assets.git",
     "blueimp-file-upload": "^9.22.1",
     "cropperjs": "~1.2.2",
-    "jquery": "~3.4.1",
+    "jquery": "~3.5.0",
     "lodash": "^4.17.11",
     "sortablejs": "^1.10.2"
   }
