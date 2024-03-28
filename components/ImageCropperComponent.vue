@@ -7,20 +7,23 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Options } from "vue-property-decorator";
+<script setup lang="ts">
+import {onMounted} from "vue";
 import '@enhavo/app/assets/fonts/enhavo-icons.font'
 import '@enhavo/app/assets/styles/view.scss';
 
-@Options({})
-export default class extends Vue
-{
-    mounted() {
-        $(document).on('change', ':input', () => {
-            this.format.changed = true;
-        });
-    }
-}
+const props = defineProps<{
+    format: any
+}>()
+
+const format = props.format;
+
+onMounted(() => {
+    $(document).on('change', ':input', () => {
+        format.changed = true;
+    });
+})
+
 </script>
 
 <style lang="css">
