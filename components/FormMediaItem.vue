@@ -7,8 +7,13 @@
             <li v-if="sortable" class="form-list-item-buttons-button drag-button"><i class="icon icon-drag">=</i></li>
             <li  v-if="deletable" class="form-list-item-buttons-button" @click="$emit('delete', form)"><i class="icon icon-close">x</i></li>
         </ul>
-        <div class="form-list-item-label" v-if="blockName">{{ blockName }}</div>
-        <form-widget :form="form" />
+        <form-widget :form="form.get('filename')" />
+        <form-widget :form="form.get('order')" />
+        <form-widget :form="form.get('parameters')" />
+        <form-widget :form="form.get('id')" />
+
+        <button>Herunterladen <i class="icon icon-cloud_download"></i></button>
+        <button>Format <i class="icon icon-crop"></i></button>
     </div>
 </template>
 
@@ -20,7 +25,6 @@ const props = defineProps<{
     form: MediaItemForm,
     sortable: boolean,
     deletable: boolean,
-    blockName: string,
 }>()
 
 function isImage(file: File): boolean
