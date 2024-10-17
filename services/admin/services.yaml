@@ -8,7 +8,7 @@ services:
             - '@enhavo/app/frame/FrameManager'
             - '@enhavo/core/Router'
             - '@enhavo/app/flash-message/FlashMessenger'
-            - '@enhavo/core/Translator'
+            - '@enhavo/app/translation/Translator'
         tags:
             - 'enhavo_app.form'
 
@@ -20,7 +20,7 @@ services:
             - '@enhavo/app/frame/FrameManager'
             - '@enhavo/app/action/ActionManager'
             - '@enhavo/app/flash-message/FlashMessenger'
-            - '@enhavo/core/Translator'
+            - '@enhavo/app/translation/Translator'
             - '@enhavo/app/vue/VueRegistry'
 
     '@enhavo/media/components/ImageCropper.vue':
@@ -32,3 +32,9 @@ services:
         static: true
         tags:
             - { name: vue.component, component: 'image-cropper' }
+
+    '@enhavo/media/controllers/MediaStyleController':
+        chunk: controller
+        static: true
+        tags:
+            - { name: stimulus.controller, key: 'media-style' }
