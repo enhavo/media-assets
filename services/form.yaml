@@ -1,0 +1,24 @@
+services:
+    '@enhavo/media/resolver/FileResolver':
+        import: FileResolver
+        chunk: 'util'
+        arguments:
+            - '@enhavo/app/routing/Router'
+            - ["enhavo_media_admin_api_file", "enhavo_media_theme_file"]
+            - ["enhavo_media_admin_api_file_format", "enhavo_media_theme_format"]
+
+    '@enhavo/media/form/model/MediaForm':
+        import: MediaForm
+        arguments:
+            - '@enhavo/vue-form/form/FormFactory'
+            - '@enhavo/app/action/ActionManager'
+        tags:
+            - { name: form.model }
+
+    '@enhavo/media/form/model/MediaItemForm':
+        import: MediaItemForm
+        arguments:
+            - '@enhavo/media/resolver/FileResolver'
+            - '@enhavo/app/action/ActionManager'
+        tags:
+            - { name: form.model }
